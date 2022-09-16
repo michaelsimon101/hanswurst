@@ -10,7 +10,7 @@
         "id": "4268fe10c38d47c0",
         "type": "tab",
         "label": "Sonos Events Flur",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -18,6 +18,14 @@
         "id": "d51d793be115dcd6",
         "type": "tab",
         "label": "Sonos Events Kammer",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "885f0ca3d7321e4a",
+        "type": "tab",
+        "label": "Sonos Events Bibliothek",
         "disabled": false,
         "info": "",
         "env": []
@@ -121,7 +129,7 @@
         "id": "9856d23b25ad4576",
         "type": "sonosevents-config",
         "name": "Heckfeld",
-        "listenerHostname": "",
+        "listenerHostname": "192.168.178.40",
         "listenerPort": "",
         "portType": "num"
     },
@@ -321,7 +329,7 @@
         "type": "sonos-config",
         "name": "Sonos",
         "serialnum": "",
-        "ipaddress": "192.168.178.174"
+        "ipaddress": "192.168.178.73"
     },
     {
         "id": "5a603ba81d18d918",
@@ -1797,12 +1805,12 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
+        "once": true,
+        "onceDelay": "0.3",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
+        "x": 150,
         "y": 900,
         "wires": [
             [
@@ -1998,7 +2006,8 @@
         "y": 2580,
         "wires": [
             [
-                "ca33d60412f78791"
+                "ca33d60412f78791",
+                "dfcc5077cd0cb19c"
             ]
         ]
     },
@@ -2234,7 +2243,8 @@
         "y": 2620,
         "wires": [
             [
-                "8235fbda96e8c6b1"
+                "8235fbda96e8c6b1",
+                "32a559497a842660"
             ]
         ]
     },
@@ -2253,7 +2263,8 @@
         "y": 2660,
         "wires": [
             [
-                "8235fbda96e8c6b1"
+                "8235fbda96e8c6b1",
+                "32a559497a842660"
             ]
         ]
     },
@@ -2272,7 +2283,8 @@
         "y": 2700,
         "wires": [
             [
-                "a063c1c9879ee5b2"
+                "a063c1c9879ee5b2",
+                "32a559497a842660"
             ]
         ]
     },
@@ -2416,8 +2428,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1310,
-        "y": 2500,
+        "x": 1210,
+        "y": 2940,
         "wires": []
     },
     {
@@ -2811,9 +2823,10 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
+        "once": true,
+        "onceDelay": "0.4",
         "topic": "",
+        "payload": "",
         "payloadType": "str",
         "x": 130,
         "y": 1200,
@@ -3440,6 +3453,11 @@
                 "label": "",
                 "value": "Arbeitszimmer",
                 "type": "str"
+            },
+            {
+                "label": "",
+                "value": "Bibliothek",
+                "type": "str"
             }
         ],
         "payload": "",
@@ -3575,9 +3593,9 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "Flur",
+        "payload": "Bibliothek",
         "payloadType": "str",
-        "x": 130,
+        "x": 150,
         "y": 2320,
         "wires": [
             [
@@ -3592,7 +3610,8 @@
         "name": "Sonos Events Title",
         "links": [
             "9ed1cd3f5ef901ac",
-            "068b08d311bb2c4e"
+            "068b08d311bb2c4e",
+            "0bb94c4a7164fd54"
         ],
         "x": 75,
         "y": 1400,
@@ -3609,7 +3628,8 @@
         "name": "Sonos Events Album",
         "links": [
             "9ed1cd3f5ef901ac",
-            "068b08d311bb2c4e"
+            "068b08d311bb2c4e",
+            "0bb94c4a7164fd54"
         ],
         "x": 75,
         "y": 1440,
@@ -3626,7 +3646,8 @@
         "name": "Sonos Events Playback Status",
         "links": [
             "24b16fe9f5e5e35f",
-            "801ca82a1039595d"
+            "801ca82a1039595d",
+            "5c358c383886d634"
         ],
         "x": 75,
         "y": 1480,
@@ -3644,7 +3665,8 @@
         "name": "Sonos Events Content",
         "links": [
             "9ed1cd3f5ef901ac",
-            "068b08d311bb2c4e"
+            "068b08d311bb2c4e",
+            "0bb94c4a7164fd54"
         ],
         "x": 75,
         "y": 1560,
@@ -3661,7 +3683,8 @@
         "name": "Sonos Events Volume",
         "links": [
             "5d9251121c38bfbf",
-            "3967c6ec0bbb4583"
+            "3967c6ec0bbb4583",
+            "a6f73221cdd9fc41"
         ],
         "x": 75,
         "y": 1620,
@@ -3700,6 +3723,39 @@
                 "830346879cf5f34a"
             ]
         ]
+    },
+    {
+        "id": "32a559497a842660",
+        "type": "debug",
+        "z": "9ba566350c0d6904",
+        "name": "Remote Control",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1280,
+        "y": 2540,
+        "wires": []
+    },
+    {
+        "id": "dfcc5077cd0cb19c",
+        "type": "debug",
+        "z": "9ba566350c0d6904",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 160,
+        "y": 2800,
+        "wires": []
     },
     {
         "id": "f7b6b5ba3339ac7e",
@@ -3874,7 +3930,7 @@
         "z": "d51d793be115dcd6",
         "name": "",
         "confignode": "9856d23b25ad4576",
-        "playerHostname": "192.168.178.178",
+        "playerHostname": "192.168.178.98",
         "events": [
             {
                 "fullName": "AVTransportService.playbackstate"
@@ -4033,6 +4089,195 @@
         "statusType": "auto",
         "x": 740,
         "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d5d6462964eb3198",
+        "type": "sonosevents-selection",
+        "z": "885f0ca3d7321e4a",
+        "name": "",
+        "confignode": "9856d23b25ad4576",
+        "playerHostname": "192.168.178.73",
+        "events": [
+            {
+                "fullName": "AVTransportService.playbackstate"
+            },
+            {
+                "fullName": "AVTransportService.content"
+            },
+            {
+                "fullName": "GroupRenderingControlService.groupVolume"
+            }
+        ],
+        "outputs": 3,
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "e904a6af4eb89e82",
+                "2325e76d0c67b1c2"
+            ],
+            [
+                "747ef92f9887cbf0",
+                "2325e76d0c67b1c2"
+            ],
+            [
+                "47de0c20024209c6",
+                "2325e76d0c67b1c2"
+            ]
+        ]
+    },
+    {
+        "id": "5c358c383886d634",
+        "type": "link out",
+        "z": "885f0ca3d7321e4a",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "04d18c1af8cde26a"
+        ],
+        "x": 855,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "0bb94c4a7164fd54",
+        "type": "link out",
+        "z": "885f0ca3d7321e4a",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "910c1f8ffba34044",
+            "9ab035d668858d1b",
+            "c1fad9eb04f2e085"
+        ],
+        "x": 855,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a6f73221cdd9fc41",
+        "type": "link out",
+        "z": "885f0ca3d7321e4a",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "a18db4aafeaa37f2"
+        ],
+        "x": 855,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "47de0c20024209c6",
+        "type": "switch",
+        "z": "885f0ca3d7321e4a",
+        "name": "Bibliothek",
+        "property": "playerName",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Bibliothek",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 220,
+        "wires": [
+            [
+                "a6f73221cdd9fc41",
+                "d39dc76ce8277dc1"
+            ]
+        ]
+    },
+    {
+        "id": "747ef92f9887cbf0",
+        "type": "switch",
+        "z": "885f0ca3d7321e4a",
+        "name": "Bibliothek",
+        "property": "playerName",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Bibliothek",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 180,
+        "wires": [
+            [
+                "0bb94c4a7164fd54",
+                "d39dc76ce8277dc1"
+            ]
+        ]
+    },
+    {
+        "id": "e904a6af4eb89e82",
+        "type": "switch",
+        "z": "885f0ca3d7321e4a",
+        "name": "Bibliothek",
+        "property": "playerName",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Bibliothek",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 140,
+        "wires": [
+            [
+                "5c358c383886d634",
+                "d39dc76ce8277dc1"
+            ]
+        ]
+    },
+    {
+        "id": "d39dc76ce8277dc1",
+        "type": "debug",
+        "z": "885f0ca3d7321e4a",
+        "name": "Bibliothek Playback State",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "2325e76d0c67b1c2",
+        "type": "debug",
+        "z": "885f0ca3d7321e4a",
+        "name": "Sonos Events Bibliothek",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 600,
         "wires": []
     }
 ]
